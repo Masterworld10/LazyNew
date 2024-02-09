@@ -1413,7 +1413,7 @@ async def manual_filters(client, message, text=False):
                                 reply_to_message_id=reply_id
                             )
                     elif btn == "[]":
-                        await client.send_cached_media(
+                        reply_message = await client.send_cached_media(
                             group_id,
                             fileid,
                             caption=reply_text or "",
@@ -1421,12 +1421,14 @@ async def manual_filters(client, message, text=False):
                         )
                     else:
                         button = eval(btn)
-                        await message.reply_cached_media(
+                        reply_message = await message.reply_cached_media(
                             fileid,
                             caption=reply_text or "",
                             reply_markup=InlineKeyboardMarkup(button),
                             reply_to_message_id=reply_id
                         )
+	            await asyncio.sleep(60)
+                    await reply_message.delete()
                 except Exception as e:
                     logger.exception(e)
                 break
