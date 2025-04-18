@@ -18,7 +18,7 @@ from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from aiohttp import web
 from plugins import web_server
-from plugins import ott_notifier  # NEW LINE
+from plugins import ott_notifying  # NEW LINE
 
 PORT = "8080"
 
