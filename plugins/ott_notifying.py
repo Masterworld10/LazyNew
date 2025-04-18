@@ -7,6 +7,8 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 # Initialize Telegram bot
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
 LOG_CHANNEL = os.getenv("LOG_CHANNEL")
 CACHE_FILE = "seen_movies.json"
 
