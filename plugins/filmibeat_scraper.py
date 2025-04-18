@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import logging
 
 def fetch_filmibeat_ott_releases():
     url = "https://www.filmibeat.com/top-listing/ott-movie-releases-this-week/"
@@ -11,7 +12,10 @@ def fetch_filmibeat_ott_releases():
     response = requests.get(url, headers=headers)
     soup = BeautifulSoup(response.text, "html.parser")
 
-    movie_cards = soup.select(".movie-top-listing")
+    logging.info("Filmibeat page fetched successfully.")
+    logging.info(f"Sample HTML: {soup.prettify()[:1000]}")  # Preview first 1000 chars
+
+    movie_cards = soup.select(".movie-top-listing")  # May need to update this selector
     releases = []
 
     for card in movie_cards:
