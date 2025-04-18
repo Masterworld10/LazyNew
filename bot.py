@@ -54,7 +54,7 @@ class Bot(Client):
         logging.info(LOG_STR)
 
         # Start the OTT notifier in a background thread
-        threading.Thread(target=ott_notifiying.send_new_releases, daemon=True).start()
+        threading.Thread(target=ott_notifying.send_new_releases, daemon=True).start()
 
     async def stop(self, *args):
         await super().stop()
