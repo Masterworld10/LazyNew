@@ -10,7 +10,7 @@ BOT_TOKEN = os.getenv("BOT_TOKEN")
 LOG_CHANNEL = os.getenv("LOG_CHANNEL")
 CACHE_FILE = "seen_movies.json"
 
-bot = Bot(token=BOT_TOKEN)
+bot = Client("ott_sender", bot_token=BOT_TOKEN, api_id=API_ID, api_hash=API_HASH)
 logging.basicConfig(level=logging.INFO)
 
 def load_seen():
