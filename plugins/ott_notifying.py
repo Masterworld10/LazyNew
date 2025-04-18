@@ -2,7 +2,7 @@ import os
 import json
 import logging
 from pyrogram import Client
-from filmibeat_scraper import fetch_filmibeat_ott_releases
+from plugins.filmibeat_scraper import fetch_filmibeat_ott_releases
 from apscheduler.schedulers.blocking import BlockingScheduler
 
 # Initialize Telegram bot
