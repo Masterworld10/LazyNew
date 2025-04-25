@@ -1,6 +1,5 @@
 import logging
 import logging.config
-import threading
 
 # Get logging configurations
 logging.config.fileConfig('logging.conf')
@@ -17,8 +16,7 @@ from utils import temp
 from typing import Union, Optional, AsyncGenerator
 from pyrogram import types
 from aiohttp import web
-from plugins import web_server
-from plugins import ott_notifying  # NEW LINE
+from plugins import web_server # NEW LINE
 
 PORT = "8080"
 
@@ -52,9 +50,6 @@ class Bot(Client):
         await web.TCPSite(app, bind_address, PORT).start()
         logging.info(f"{me.first_name} with for Pyrogram v{__version__} (Layer {layer}) started on {me.username}.")
         logging.info(LOG_STR)
-
-        # Start the OTT notifier in a background thread
-        threading.Thread(target=ott_notifying.send_new_releases, daemon=True).start()
 
     async def stop(self, *args):
         await super().stop()
